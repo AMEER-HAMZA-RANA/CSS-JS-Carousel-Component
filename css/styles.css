@@ -1,0 +1,143 @@
+:root {
+  --color-default-state: grey;
+  --color-hover-state: rgb(107, 107, 195);
+  --color-selected-state: rgb(17, 26, 101);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.carousel {
+  display: grid;
+  grid-template-columns: 3em 80vw 3em;
+  grid-template-rows: 70vh 3em;
+  align-items: center;
+  grid-gap: 1em;
+}
+
+.carousel > *:nth-child(2) {
+  grid-column: 2;
+  align-self: stretch;
+}
+
+/**
+ * START EDITING HERE!
+ * ===================
+ */
+
+.carousel__contents {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+.carousel__slide {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+}
+
+/* This code works if the width of one slide is 800px . But now it is 800vw */
+/* .carousel__slide:nth-child(2) {
+  left: 800px;
+}
+
+.carousel__slide:nth-child(3) {
+  left: 1600px;
+} */
+
+/**
+ * Carousel contents
+ */
+.carousel__contents-container {
+  overflow: hidden;
+}
+/* .carousel__contents {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel__slide {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+} */
+
+/* .carousel__slide:nth-child(2) {
+  left: 800px;
+}
+
+.carousel__slide:nth-child(3) {
+  left: 1600px;
+} */
+
+.carousel__slide > a {
+  display: block;
+  width: inherit;
+  height: inherit;
+}
+
+.carousel__slide img {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/**
+ * Buttons
+ */
+.carousel__button {
+  padding: 0.25em;
+  border: none;
+}
+.carousel__button svg {
+  fill: var(--color-default-state);
+}
+
+.carousel__button:hover svg,
+.carousel__button:active svg {
+  fill: var(--color-hover-state);
+}
+
+.carousel__button.is-hidden {
+  display: none;
+}
+
+/**
+ * Dots
+ */
+.carousel__dots {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.carousel__dot {
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  border-radius: 100%;
+  background-color: var(--color-default-state);
+}
+
+.carousel__dot + .carousel__dot {
+  margin-left: 1em;
+}
+
+.carousel__dot:hover {
+  background-color: var(--color-hover-state);
+}
+
+.carousel__dot.is-selected {
+  background-color: var(--color-selected-state);
+}
+
+.is-hidden {
+  display: none;
+}
